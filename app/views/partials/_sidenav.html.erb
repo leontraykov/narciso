@@ -1,0 +1,50 @@
+<!-- start of sidenav -->
+<aside><div class="sidenav position-sticky d-flex flex-column justify-content-between">
+    <%= link_to root_path, class:"navbar-brand logo" do %>
+        <%= image_tag "logo.png" %>
+    <% end %>
+    </a>
+    <!-- end of navbar-brand -->
+
+    <div class="navbar navbar-dark my-4 p-0 font-primary">
+        <ul class="navbar-nav w-100">
+            <li class="nav-item">
+                <%= link_to "Home", root_path, class:"nav-link text-white px-0 pt-0" %>
+            </li>
+            <li class="nav-item">
+                <%= link_to "About", about_path, class:"nav-link text-white px-0" %>
+            </li>
+            <li class="nav-item">
+                <%= link_to "Contact", contact_path, class:"nav-link text-white px-0" %>
+            </li>
+
+            <%= select_tag 'locale', options_for_select([['English', root_path(locale: :en)], ['Español', root_path(locale: :es)]], selected: root_path(locale: I18n.locale)), class: 'custom-select bg-transparent rounded-0 text-white shadow-none mt-3', onchange: 'window.location = this.value' %>
+        </ul>
+    </div>
+    <!-- end of navbar -->
+
+    <ul class="list-inline nml-2">
+        <li class="list-inline-item">
+            <a href="#!" class="text-white text-red-onHover pr-2">
+                <span class="fab fa-twitter"></span>
+            </a>
+        </li>
+        <li class="list-inline-item">
+            <a href="#!" class="text-white text-red-onHover p-2">
+                <span class="fab fa-facebook-f"></span>
+            </a>
+        </li>
+        <li class="list-inline-item">
+            <a href="#!" class="text-white text-red-onHover p-2">
+                <span class="fab fa-instagram"></span>
+            </a>
+        </li>
+        <li class="list-inline-item">
+            <a href="#!" class="text-white text-red-onHover p-2">
+                <span class="fab fa-linkedin-in"></span>
+            </a>
+        </li>
+    </ul>
+    <!-- end of social-links -->
+</div></aside>
+<!-- end of sidenav -->
