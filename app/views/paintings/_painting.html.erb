@@ -1,0 +1,22 @@
+<div class="card post-item bg-transparent border-0 mb-5">
+    <%= link_to painting_path(painting) do %>
+      <%= image_tag painting.images.first.image.url, alt: '', class: 'card-img-top rounded-0' if painting.images.any? %>
+    <% end %>
+    <div class="card-body px-0">
+        <h2 class="card-title">
+            <%= link_to painting.title, painting_path(painting), class: 'text-white opacity-75-onHover' %>
+        </h2>
+        <ul class="post-meta mt-3">
+            <li class="d-inline-block mr-3">
+                <span class="bi-clock text-primary"></span>
+                <span class="mx-2 text-white"><%= l painting.creation_date, format: :long %></span>
+            </li>
+            <li class="d-inline-block mx-4">
+                <span class="bi-card-list text-primary"></span>
+                <span class="mx-2 text-white">Fine Art</span>
+            </li>
+        </ul>
+        <p class="card-text my-4"><%= painting.description %></p>
+        <%= link_to 'Read More', painting_path(painting), class: 'btn btn-primary' %>
+    </div>
+</div>

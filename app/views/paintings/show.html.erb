@@ -1,0 +1,48 @@
+<div class="main-content">
+    <div class="container pt-4 mt-5">
+        <div class="row justify-content-between">
+            <div class="col-lg-7">
+                <div class="card post-item bg-transparent border-0 mb-5">
+                    <!-- Карусель изображений -->
+                    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <% @painting.images.each_with_index do |image, index| %>
+                                <div class="carousel-item <%= 'active' if index.zero? %>">
+                                    <%= link_to image_tag(image.image.url, alt: '', class: 'card-img-top rounded-0'), image.image.url, data: { lightbox: @painting.title } if image.image.present? %>
+                                </div>
+                            <% end %>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    
+                    <div class="card-body px-0">
+                        <em class="text-white"><%= @painting.title %></em>
+                        <h2 class="card-title">
+                            <span class="text-white"><%= truncate(@painting.description, length: 75) %></span>
+                        </h2>
+                        <ul class="post-meta mt-3">
+                            <li class="d-inline-block mr-3">
+                                <span class="bi-clock text-primary"></span>
+                                <span class="ml-1 text-white"><%= l @painting.creation_date, format: :long %></span>
+                            </li>
+                            <li class="d-inline-block">
+                                <span class="bi-card-list text-primary"></span>
+                                <span class="ml-1 text-white">Fine Art</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- end of post-item -->
+            </div>
+        </div>
+    </div>
+    <%= link_to 'Edit', edit_painting_path, class: 'btn btn-success' %>
+    <%= link_to 'Back', root_path, class: 'btn btn-primary' %>
+</div>

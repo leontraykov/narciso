@@ -1,0 +1,27 @@
+<div class="flex">
+  <h2>Edit Painting</h2>
+
+  <h3>Добавить новое изображение</h3>
+  <%= form_for [ @painting, Image.new ], url: painting_images_path(@painting), html: { multipart: true } do |f| %>
+    <div class="form-group">
+      <%= f.label :image, "Загрузить изображение" %>
+      <%= f.file_field :image %>
+    </div>
+    <%= f.submit "Загрузить изображение", class: 'btn btn-primary' %>
+  <% end %>
+
+  <% if @painting.images.count > 0 %>
+    <h3>Изображения:</h3>
+    <ul>
+      <% @painting.images.each do |image| %>
+        <li>
+          <%= image.image.identifier %> <!-- Имя файла -->
+          <%= button_to 'Удалить', painting_image_path(@painting, image), method: :delete, data: { turbo_confirm: 'Вы уверены, что хотите удалить это изображение?' }, class: 'btn btn-danger' %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <%= render 'form' %>
+  <%= link_to 'Back', painting_path(@painting), class: 'btn btn-secondary' %>
+</div>
