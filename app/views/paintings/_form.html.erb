@@ -1,19 +1,30 @@
-<%= form_for @painting, html: { class: 'form-group', multipart: true } do |f| %>
+<%= form_for @painting, html: { class: 'form-group my-2 mb-5', multipart: true } do |f| %>
 
   <div class="mb-3">
-    <%= f.label :title, class: 'form-label' %>
-    <%= f.text_field :title, class: 'form-control' %>
+    <%= f.label :en_title, 'English Title', class: 'form-label' %>
+    <%= f.text_field :en_title, class: 'form-control', placeholder: 'Enter English title...' %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :en_description, 'English Description', class: 'form-label' %>
+    <%= f.text_area :en_description, class: 'form-control', placeholder: 'Enter English description...' %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :es_title, 'Spanish Title', class: 'form-label' %>
+    <%= f.text_field :es_title, class: 'form-control', placeholder: 'Enter Spanish title...' %>
   </div>
   
   <div class="mb-3">
-    <%= f.label :description, class: 'form-label' %>
-    <%= f.text_area :description, class: 'form-control' %>
+    <%= f.label :es_description, 'Spanish Description', class: 'form-label' %>
+    <%= f.text_area :es_description, class: 'form-control', placeholder: 'Enter Spanish description...' %>
   </div>
-  
+
   <div class="mb-3">
-    <%= f.label :creation_date, class: 'form-label' %>
+    <%= f.label :creation_date, 'Creation Date', class: 'form-label' %>
     <%= f.date_field :creation_date, class: 'form-control' %>
   </div>
   
-  <%= f.submit 'Save', class: 'btn btn-primary' %>
+  <%= f.submit 'Save', class: 'btn btn-primary me-2' %>
+  <%= link_to 'Back', :back, class: 'btn btn-secondary' %>
 <% end %>

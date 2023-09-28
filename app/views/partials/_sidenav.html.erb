@@ -12,12 +12,16 @@
                 <%= link_to "Home", root_path, class:"nav-link text-white px-0 pt-0" %>
             </li>
             <li class="nav-item">
-                <%= link_to "About", about_path, class:"nav-link text-white px-0" %>
+                <%= link_to "Art Gallery", paintings_path, class:"nav-link text-white px-0" %>
             </li>
             <li class="nav-item">
                 <%= link_to "Contact", contact_path, class:"nav-link text-white px-0" %>
             </li>
-
+            <% if @user.present? && @user.admin? %>
+                <li class="nav-item">
+                    <%= link_to "New painting", new_painting_path, class:"nav-link text-white px-0" %>
+                </li>
+            <% end %>
             <%= select_tag 'locale', options_for_select([['English', root_path(locale: :en)], ['Español', root_path(locale: :es)]], selected: root_path(locale: I18n.locale)), class: 'custom-select bg-transparent rounded-0 text-white shadow-none mt-3', onchange: 'window.location = this.value' %>
         </ul>
     </div>

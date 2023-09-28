@@ -6,3 +6,82 @@
 @import '_mixins';
 @import '_typography';
 @import '_variables';
+
+.post-item {
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+}
+
+.carousel-inner {
+  height: 600px; /* Устанавливаем фиксированную высоту, чтобы избежать "прыжков" при разной высоте изображений */
+}
+
+.carousel-item img {
+  object-fit: contain; /* Подгоняем изображение внутрь контейнера, сохраняя пропорции */
+  max-height: 100%; /* Ограничиваем максимальную высоту изображения */
+}
+
+.contact-container {
+  margin-top: 50px;
+}
+
+.card {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.card-body {
+  text-align: left;
+  font-size: 18px; /* Увеличиваем размер шрифта для текста */
+}
+
+.bi {
+  font-size: 24px; /* Увеличиваем размер иконок */
+  margin-right: 15px; /* Добавляем пространство между иконкой и текстом */
+}
+
+.cont-link {
+  color: rgba(228, 17, 47, 0.7); /* Темный фон с прозрачностью */
+  padding: 5px 10px; /* Отступы вокруг текста */
+  border: 1px solid #ffffff; /* Белая рамка вокруг ссылки */
+  border-radius: 5px; /* Скругление углов рамки */
+  transition: all 0.3s ease; /* Плавный переход всех свойств */
+}
+
+.cont-link:hover {
+  font-weight: bold;
+  color: rgba(141, 4, 24, 0.7); /* Темный фон с прозрачностью */
+}
+
+.image-container {
+  margin-top: 20px;
+}
+
+.image-list {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  flex-wrap: wrap;
+  margin: 10px;
+  padding: 10px;
+}
+
+.image-item {
+  display: flex;
+  align-items: center;
+}
+
+.image-thumb {
+  margin-right: 10px;
+}
+
+.thumb-size {
+  width: 80px;
+}
+.image-info {
+  flex-grow: 1;
+}
+
+.image-action {
+  margin-left: auto;
+}

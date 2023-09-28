@@ -3,9 +3,12 @@ class PaintingsController < ApplicationController
 
   def index
     @paintings = Painting.all
+    @user = current_user
   end
 
   def show
+    @next_painting = Painting.where("id > ?", @painting.id).order(id: :asc).first
+    @user = current_user
   end
 
   def new
@@ -34,7 +37,7 @@ class PaintingsController < ApplicationController
 
   def destroy
     @painting.destroy
-    redirect_to paintings_url, notice: 'Painting was successfully destroyed.'
+    redirect_to root_path, notice: 'Painting was successfully destroyed.'
   end
 
   private
@@ -44,6 +47,6 @@ class PaintingsController < ApplicationController
   end
 
   def painting_params
-    params.require(:painting).permit(:title, :description, :creation_date, images_attributes: [:id, :image, :_destroy])
+    params.require(:painting).permit(:en_title, :en_description, :es_title, :es_description, :creation_date, images_attributes: [:id, :image, :_destroy])
   end
 end

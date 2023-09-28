@@ -1,48 +1,70 @@
-<div class="main-content">
-    <div class="container pt-4 mt-5">
-        <div class="row justify-content-between">
-            <div class="col-lg-7">
-                <div class="card post-item bg-transparent border-0 mb-5">
-                    <!-- Карусель изображений -->
-                    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-inner">
-                            <% @painting.images.each_with_index do |image, index| %>
-                                <div class="carousel-item <%= 'active' if index.zero? %>">
-                                    <%= link_to image_tag(image.image.url, alt: '', class: 'card-img-top rounded-0'), image.image.url, data: { lightbox: @painting.title } if image.image.present? %>
-                                </div>
-                            <% end %>
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    </div>
-                    
-                    <div class="card-body px-0">
-                        <em class="text-white"><%= @painting.title %></em>
-                        <h2 class="card-title">
-                            <span class="text-white"><%= truncate(@painting.description, length: 75) %></span>
-                        </h2>
-                        <ul class="post-meta mt-3">
-                            <li class="d-inline-block mr-3">
-                                <span class="bi-clock text-primary"></span>
-                                <span class="ml-1 text-white"><%= l @painting.creation_date, format: :long %></span>
-                            </li>
-                            <li class="d-inline-block">
-                                <span class="bi-card-list text-primary"></span>
-                                <span class="ml-1 text-white">Fine Art</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- end of post-item -->
-            </div>
-        </div>
+
+<div class="card post-item bg-transparent border-0">
+  <div class="card-body px-0">
+    <h2 class="card-title text-white">
+      <% title_field = "#{I18n.locale}_title".to_sym %>
+      <%= @painting[title_field]%>
+    </h2>
+  </div>
+</div>
+
+
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <% @painting.images.each_with_index do |image, index| %>
+      <div class="carousel-item <%= 'active' if index.zero? %>">
+        <%= image_tag(image.image.url, alt: '', class: 'd-block w-100') if image.image.present? %>
+      </div>
+    <% end %>
+  </div>
+
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+
+  <div class="carousel-indicators">
+    <% @painting.images.each_with_index do |_, index| %>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<%= index %>" class="<%= 'active' if index.zero? %> red" aria-current="<%= 'true' if index.zero? %>" aria-label="Slide <%= index + 1 %>"></button>
+    <% end %>
+  </div>
+</div>
+<div class="card post-item bg-transparent border-0 mb-5">
+  <div class="card-body px-0">
+    <p class="card-text">
+      <% description_field = "#{I18n.locale}_description".to_sym %>
+      <%= @painting[description_field] %>
+    </p>
+    <ul class="post-meta mt-3">
+      <li class="d-inline-block">
+        <span class="bi-card-list text-primary"></span>
+        <span class="mx-2 text-white">Fine Art</span>
+      </li>
+      <% if @painting.creation_date.present? %>
+        <li class="d-inline-block mx-4">
+          <span class="bi-clock text-primary"></span>
+          <span class="mx-2 text-white"><%= l @painting.creation_date, format: :long %></span>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+<div class="text-start d-flex">
+  <% if @user.present? && @user.admin? %>
+    <div class="mb-2 d-flex">
+      <%= link_to 'Edit', edit_painting_path, class: 'btn btn-success me-2' %>
+      <%= button_to 'Delete', painting_path(@painting), method: :delete, class: 'btn btn-danger', data: { turbo_confirm: 'Are you sure?' } %>
     </div>
-    <%= link_to 'Edit', edit_painting_path, class: 'btn btn-success' %>
-    <%= link_to 'Back', root_path, class: 'btn btn-primary' %>
+  <% end %>
+  <div class="mb-2">
+    <%= link_to 'Back', root_path, class: 'btn btn-primary mx-2' %>
+    <% if @next_painting.present? %>
+      <%= link_to 'Next Painting', painting_path(@next_painting, locale: I18n.locale), class: 'btn btn-info' %>
+    <% end %>
+  </div>
 </div>

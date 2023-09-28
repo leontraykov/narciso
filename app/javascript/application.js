@@ -1,3 +1,8 @@
+//=* require lightbox
+import "@hotwired/turbo-rails"
+import "./controllers"
+import * as bootstrap from "bootstrap"
+
 document.addEventListener('DOMContentLoaded', function() {
   // PreLoader Init
   function preLoader() {
