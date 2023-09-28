@@ -92,3 +92,36 @@ body {
 .image-action {
   margin-left: auto;
 }
+
+/* Общие стили для всех alert-ов */
+.alert {
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+/* Стили для alert-success */
+.alert-notice {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+
+/* Стили для alert-error */
+.alert-alert {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+
+/* Стили для alert-info */
+.alert-info {
+  color: #0c5460;
+  background-color: #d1ecf1;
+  border-color: #bee5eb;
+}
+
+.form-control::placeholder { /* Most modern browsers support this */
+  color: white;
+}
