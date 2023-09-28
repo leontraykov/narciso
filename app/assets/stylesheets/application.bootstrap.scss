@@ -7,6 +7,10 @@
 @import '_typography';
 @import '_variables';
 
+body {
+  overflow: auto; /* или overflow-y: scroll; */
+}
+
 .post-item {
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   background-color: #ffffff;
@@ -14,6 +18,9 @@
 
 .carousel-inner {
   height: 600px; /* Устанавливаем фиксированную высоту, чтобы избежать "прыжков" при разной высоте изображений */
+  @media (max-width:900px) {
+    height: 450px;
+  }
 }
 
 .carousel-item img {

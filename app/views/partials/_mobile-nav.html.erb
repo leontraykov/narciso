@@ -1,15 +1,15 @@
 <!-- start of mobile-nav -->
 <header class="mobile-nav pt-4">
     <div class="container">
-        <div class="row align-items-center">
+        <div class="d-flex align-items-center">
             <div class="col-6">
                 <%= link_to root_path do %>
                     <%= image_tag "logo.png" %>
                 <% end %>
             </div>
-            <div class="col-6 text-end">
-                <button class="mx-2 nav-toggle bg-transparent border text-white">
-                    <span class="bi bi-list"></span> <!-- Этот класс для иконки "бургера" в Bootstrap Icons -->
+            <div class="col-6 d-flex justify-content-end align-items-center">
+                <button class="nav-toggle bg-transparent border text-white d-flex justify-content-center align-items-center">
+                    <span class="bi bi-list mx-0"></span>
                 </button>
             </div>
         </div>

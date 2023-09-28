@@ -34,6 +34,26 @@
     <% end %>
   </div>
 </div>
+
+<!-- Добавленный блок навигации -->
+<div class="d-flex justify-content-center mt-3 mb-3">
+  <% if @prev_painting %>
+    <%= link_to painting_path(@prev_painting), class: 'btn btn-outline-secondary border rounded-4 d-flex align-items-center' do %>
+      <i class="bi bi-arrow-left mx-0"></i><span class="d-none d-md-block mx-2"> Previous Painting</span>
+    <% end %>
+  <% end %>
+
+  <%= link_to paintings_path, class: 'btn btn-outline-secondary border rounded-4 d-flex align-items-center mx-4' do %>
+    <i class="bi bi-grid-3x3-gap mx-0"></i><span class="d-none d-md-block mx-2"> All Paintings</span>
+  <% end %>
+
+  <% if @next_painting %>
+    <%= link_to painting_path(@next_painting), class: 'btn btn-outline-secondary border rounded-4 d-flex align-items-center' do %>
+      <span class="d-none d-md-block mx-2">Next Painting </span><i class="bi bi-arrow-right mx-0"></i>
+    <% end %>
+  <% end %>
+</div>
+
 <div class="card post-item bg-transparent border-0 mb-5">
   <div class="card-body px-0">
     <p class="card-text">
@@ -54,6 +74,7 @@
     </ul>
   </div>
 </div>
+<!-- Ваш текущий код -->
 <div class="text-start d-flex">
   <% if @user.present? && @user.admin? %>
     <div class="mb-2 d-flex">
@@ -61,10 +82,5 @@
       <%= button_to 'Delete', painting_path(@painting), method: :delete, class: 'btn btn-danger', data: { turbo_confirm: 'Are you sure?' } %>
     </div>
   <% end %>
-  <div class="mb-2">
-    <%= link_to 'Back', root_path, class: 'btn btn-primary mx-2' %>
-    <% if @next_painting.present? %>
-      <%= link_to 'Next Painting', painting_path(@next_painting, locale: I18n.locale), class: 'btn btn-info' %>
-    <% end %>
-  </div>
 </div>
+

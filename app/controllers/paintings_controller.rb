@@ -7,6 +7,7 @@ class PaintingsController < ApplicationController
   end
 
   def show
+    @prev_painting = Painting.where("id < ?", @painting.id).order(id: :desc).first
     @next_painting = Painting.where("id > ?", @painting.id).order(id: :asc).first
     @user = current_user
   end
