@@ -34,7 +34,7 @@
 
 <div class="widget bg-dark p-4 text-center">
     <h2 class="widget-title text-white d-inline-block mt-4">Subscribe to My Art Blog</h2>
-    <p class="mt-4">Join my mailing list to receive updates when I create a new painting! I value your privacy and promise never to send you spam or share your email with anyone.</p>
+    <p class="mt-4">Join my mailing list to receive updates when I create a new painting! I value your privacy and guarantee never to send you spam or share your email with anyone.</p>
     <%= form_with(model: Subscription.new, local: false, data: { controller: "subscription" }) do |form| %>
         <%= form.email_field :email, placeholder: 'Your Email Here', class:"form-control bg-black text-white", data: { action: "input->clear_field#clear" } %><br>
         <%= form.submit 'Subscribe', class: 'btn btn-primary fs-6 my-2' %>
