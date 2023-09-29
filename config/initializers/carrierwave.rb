@@ -6,4 +6,6 @@ CarrierWave.configure do |config|
     use_iam_profile: true
   }
   config.fog_directory  = 'narciso-images'
+  config.fog_public     = false  # Опционально - для приватного ведра
+  config.fog_attributes = { cache_control: "public, max-age=#{365.days.to_i}" } 
 end
