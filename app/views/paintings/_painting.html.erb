@@ -1,7 +1,9 @@
 <div class="card post-item bg-transparent border-0 mb-5">
-    <%= link_to painting_path(painting) do %>
-      <%= image_tag painting.images.first.image.url, alt: '', class: 'card-img-top rounded-0' if painting.images.any? %>
-    <% end %>
+    <div class="painting-section">
+        <%= link_to painting_path(painting) do %>
+            <%= image_tag painting.images.first.image.url, alt: 'Narciso Perez Fine Art', class: 'painting-image rounded-0' if painting.images.any? %>
+        <% end %>
+    </div>
     <div class="card-body px-0">
         <h2 class="card-title">
             <% title_field = "#{I18n.locale}_title".to_sym %>
