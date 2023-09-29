@@ -84,3 +84,9 @@ production:
   database: narciso_production
   username: narciso
   password: <%= ENV["NARCISO_DATABASE_PASSWORD"] %>
+
+  <<: *default
+  database: narciso_production
+  username: narciso
+  password: narcpostgres
+  host: localhost
