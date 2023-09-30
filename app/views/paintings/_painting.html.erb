@@ -12,12 +12,12 @@
         <ul class="post-meta mt-3">
             <li class="d-inline-block">
                 <span class="bi-card-list text-primary"></span>
-                <span class="mx-2 text-white">Fine Art</span>
+                <span class="mx-2 text-white fs-6">Fine Art</span>
             </li>
             <% if painting.creation_date.present? %>
                 <li class="d-inline-block mx-4">
                     <span class="bi-clock text-primary"></span>
-                    <span class="mx-2 text-white"><%= l painting.creation_date, format: :long %></span>
+                    <span class="mx-2 text-white fs-6"><%= l painting.creation_date, format: :long %></span>
                 </li>
             <% end %>
         </ul>

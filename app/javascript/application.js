@@ -3,7 +3,7 @@ import "@hotwired/turbo-rails"
 import "./controllers"
 import * as bootstrap from "bootstrap"
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('turbo:load', function() {
   // PreLoader Init
   function preLoader() {
     document.body.classList.add('loaded');
@@ -23,8 +23,8 @@ document.addEventListener('DOMContentLoaded', function() {
         sidenav.classList.toggle('show');
         navToggleOverlay.classList.toggle('show');
         
-        let icon = navToggle.querySelector('i'); // Предполагается, что вы используете тег <i> для иконки
-        if (span) span.classList.toggle('bi-x'); // Измените 'fa-times' на 'bi-x'
+        let span = navToggle.querySelector('span'); // Предполагается, что вы используете тег <span> для иконки
+        if (span) span.classList.toggle('bi-x'); 
         if (span) span.classList.toggle('bi-list');
         });
       
@@ -32,9 +32,9 @@ document.addEventListener('DOMContentLoaded', function() {
         sidenav.classList.remove('show');
         navToggleOverlay.classList.remove('show');
         
-        let icon = navToggle.querySelector('i');
-        if (icon) icon.classList.remove('bi-x');
-        if (icon) icon.classList.add('bi-list');
+        let span = navToggle.querySelector('span');
+        if (span) span.classList.remove('bi-x');
+        if (span) span.classList.add('bi-list');
       });
     }
   }
