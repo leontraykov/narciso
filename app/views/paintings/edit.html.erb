@@ -1,46 +1,46 @@
 <div class="flex">
-  <h2>Edit Painting</h2>
-
-<div class="container image-container">
-  <div class="card bg-dark text-white">
-    <div class="card-title">
-      <h3 class="ms-3 mt-4">Add new Image</h3>
-    </div>
-    <div class="card-body">
-      <%= form_for [ @painting, Image.new ], url: painting_images_path(@painting), html: { multipart: true } do |f| %>
-        <div class="form-group my-2">
-          <%= f.label :image, "Upload Image" %><br>
-          <%= f.file_field :image %>
-        </div>
-        <%= f.submit "Upload Image", class: 'btn btn-success fs-6' %>
-      <% end %>
-
-      <% if @painting.images.count > 0 %>
-        <h3 class="my-2 mt-4">Images:</h3>
-        <div class="d-flex justify-content-center">
-          <div class="image-list">
-            <% @painting.images.each do |image| %>
-              <div class="image-item mb-2">
-                <div class="image-thumb">
-                  <%= image_tag image.image.url(:thumb), class:"thumb-size" if image.image.present? %>
-                </div>
-                <div class="image-info">
-                  <p><%= image.image.identifier %></p> <!-- Имя файла -->
-                </div>
-                <div class="image-action">
-                  <%= button_to 'Delete', painting_image_path(@painting, image), method: :delete, data: { turbo_confirm: 'Вы уверены, что хотите удалить это изображение?' }, class: 'btn btn-danger fs-6' %>
-                </div>
-              </div>
-              <hr>
-            <% end %>
+  <span class="d-flex">
+    <h2 class="me-2"><%= t('paintings.edit.edit_painting') %></h2>
+    <%= link_to t('paintings.edit.this_painting_page'), painting_path(@painting), class: "btn btn-outline-warning border border-light px-2 rounded " %>
+  </span>
+  
+  <div class="container image-container">
+    <div class="card bg-dark text-white">
+      <div class="card-title">
+        <h3 class="ms-3 mt-4"><%= t('paintings.edit.add_new_image') %></h3>
+      </div>
+      <div class="card-body">
+        <%= form_for [ @painting, Image.new ], url: painting_images_path(@painting), html: { multipart: true } do |f| %>
+          <div class="form-group my-2">
+            <%= f.label :image, t('paintings.edit.upload_image') %><br>
+            <%= f.file_field :image %>
           </div>
-        </div>
-      <% end %>
+          <%= f.submit t('paintings.edit.upload_image'), class: 'btn btn-success fs-6' %>
+        <% end %>
+
+        <% if @painting.images.count > 0 %>
+          <h3 class="my-2 mt-4"><%= t('paintings.edit.images') %></h3>
+          <div class="d-flex justify-content-center">
+            <div class="image-list">
+              <% @painting.images.each do |image| %>
+                <div class="image-item mb-2">
+                  <div class="image-thumb">
+                    <%= image_tag image.image.url(:thumb), class:"thumb-size" if image.image.present? %>
+                  </div>
+                  <div class="image-info">
+                    <p><%= image.image.identifier %></p> <!-- File Name -->
+                  </div>
+                  <div class="image-action">
+                    <%= button_to t('paintings.edit.delete'), painting_image_path(@painting, image), method: :delete, data: { turbo_confirm: t('paintings.edit.delete_image_confirmation') }, class: 'btn btn-danger fs-6' %>
+                  </div>
+                </div>
+                <hr>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
-
-</div>
-
   <%= render 'form' %>
-  <%#= link_to 'Back', painting_path(@painting), class: 'btn btn-secondary' %>
 </div>

@@ -6,26 +6,26 @@
     </div>
     <div class="card-body px-0">
         <h2 class="card-title">
-            <% title_field = "#{I18n.locale}_title".to_sym %>
+            <% title_field = %w[en es].include?(I18n.locale.to_s) ? "#{I18n.locale}_title".to_sym : :en_title %>
             <%= link_to painting[title_field], painting_path(painting), class: 'text-white opacity-75-onHover' %>
         </h2>
         <ul class="post-meta mt-3">
-            <li class="d-inline-block">
-                <span class="bi-card-list text-primary"></span>
-                <span class="mx-2 text-white fs-6">Fine Art</span>
+            <li class="d-inline-block me-4">
+                <span class="bi-card-list text-primary fs-6"></span>
+                <span class="mx-2 text-white fs-6"><%= t('paintings.post_item.fine_art') %></span>
             </li>
             <% if painting.creation_date.present? %>
-                <li class="d-inline-block mx-4">
-                    <span class="bi-clock text-primary"></span>
+                <li class="d-inline-block">
+                    <span class="bi-clock text-primary fs-6"></span>
                     <span class="mx-2 text-white fs-6"><%= l painting.creation_date, format: :long %></span>
                 </li>
             <% end %>
         </ul>
         <p class="card-text my-4">
-          <% description_field = "#{I18n.locale}_description".to_sym %>
-          <%= painting[description_field].truncate(30) %>
+          <% description_field = %w[en es].include?(I18n.locale.to_s) ? "#{I18n.locale}_description".to_sym : :en_description %>
+          <%= painting[description_field].try(:truncate, 30) || t('default_description') %>
         </p>
-        <%= link_to 'See details', painting_path(painting), class: 'btn btn-primary fs-6' %>
+        <%= link_to t('paintings.post_item.see_details'), painting_path(painting), class: 'btn btn-primary fs-6' %>
     </div>
 </div>
 <hr>

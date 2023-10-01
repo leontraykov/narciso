@@ -1,0 +1,66 @@
+de:
+  locales:
+    en: "English"
+    es: "Español"
+    ru: "Русский"
+    de: "Deutsch"
+  save: "Speichern"
+  back: "Zurück"
+  paintings:
+    latest_artworks_title: "Neueste Kunstwerke von Narciso Perez"
+    explore_creations: "Entdecken Sie die neuesten Kreationen und finden Sie Ihr Lieblingskunstwerk."
+    form:
+      english_title: "Englischer Titel"
+      english_description: "Englische Beschreibung"
+      enter_english_title: "Englischen Titel eingeben..."
+      enter_english_description: "Englische Beschreibung eingeben..."
+      spanish_title: "Spanischer Titel"
+      spanish_description: "Spanische Beschreibung"
+      enter_spanish_title: "Spanischen Titel eingeben..."
+      enter_spanish_description: "Spanische Beschreibung eingeben..."
+      creation_date: "Erstellungsdatum"
+    post_item:
+      fine_art: "Bildende Kunst"
+      see_details: "Details anzeigen"
+    edit:
+      edit_painting: "Gemälde bearbeiten"
+      this_painting_page: "Diese Gemäldeseite"
+      add_new_image: "Neues Bild hinzufügen"
+      upload_image: "Bild hochladen"
+      images: "Bilder:"
+      delete_image_confirmation: "Sind Sie sicher, dass Sie dieses Bild löschen möchten?"
+      delete: "Löschen"
+    new:
+      new_painting: "Neues Gemälde"
+      first_you_name: "Zuerst benennen Sie Ihr Gemälde. Füllen Sie das Formular aus."
+      save_and_edit: "Speichern Sie es und gehen Sie dann zu BEARBEITEN, um Bilder hochzuladen."
+    show:
+      title: "Titel"
+      previous_painting: "Vorheriges Gemälde"
+      all_paintings: "Alle Gemälde"
+      next_painting: "Nächstes Gemälde"
+      fine_art: "Bildende Kunst"
+      edit: "Bearbeiten"
+      delete: "Löschen"
+      confirm_delete: "Bist du sicher?"
+  contact:
+    contact_me_via: "Kontaktieren Sie mich über:"
+    whatsapp: "Whatsapp:"
+    facebook: "Facebook:"
+    instagram: "Instagram:"
+    email: "E-Mail:"
+    phone: "Telefon:"
+    address: "Adresse:"
+  sidenav:
+    home: "Startseite"
+    art_gallery: "Kunstgalerie"
+    contact: "Kontakt"
+    new_painting: "Neues Gemälde"
+  author_widget:
+    title: "Narciso Perez"
+    description: "Willkommen in meinem Kunst-Blog! Hier können Sie meine einzigartigen Gemälde erkunden und Ihre Gedanken teilen. Wenn Sie Fragen haben oder mehr Informationen benötigen, können Sie mich gerne über eine der unten aufgeführten Plattformen kontaktieren."
+  subscribe_widget:
+    title: "Abonnieren Sie meinen Kunst-Blog"
+    description: "Abonnieren Sie meinen Newsletter, um Updates zu erhalten, wenn ich ein neues Gemälde erstelle! Ich respektiere Ihre Privatsphäre und verspreche, Ihnen niemals Spam zu senden oder Ihre E-Mail-Adresse mit jemandem zu teilen."
+    placeholder: "Ihre E-Mail hier"
+    button: "Abonnieren"

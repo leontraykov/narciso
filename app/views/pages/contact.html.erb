@@ -3,30 +3,30 @@
         <div class="col-md-6 offset-md-3">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Contact Me via:</h5>
+                    <h5 class="card-title"><%= t "contact.contact_me_via" %></h5>
                     
                     <div class="mt-3">
-                        <i class="bi bi-whatsapp "></i> Whatsapp:  <%= link_to "+18098628384", "https://wa.me/+18296294794", target: "_blank", class:"cont-link" %>
+                        <i class="bi bi-whatsapp "></i> <%= t "contact.whatsapp" %> <%= link_to "+18098628384", "https://wa.me/+18296294794", target: "_blank", class:"cont-link" %>
                     </div>
                     
                     <div class="mt-3">
-                        <i class="bi bi-facebook"></i> Facebook: <%= link_to "Narciso Perez", "https://www.facebook.com/narciso.perez.3950178", target: "_blank", class:"cont-link" %>
+                        <i class="bi bi-facebook"></i> <%= t "contact.facebook" %> <%= link_to "Narciso Perez", "https://www.facebook.com/narciso.perez.3950178", target: "_blank", class:"cont-link" %>
                     </div>
                     
                     <div class="mt-3">
-                        <i class="bi bi-instagram"></i> Instagram: <%= link_to "NarcisoP", "https://www.instagram.com", target: "_blank", class:"cont-link" %>
+                        <i class="bi bi-instagram"></i> <%= t "contact.instagram" %> <%= link_to "NarcisoP", "https://www.instagram.com", target: "_blank", class:"cont-link" %>
                     </div>
                     
                     <div class="mt-3">
-                        <i class="bi bi-envelope-fill"></i> Email: <%= mail_to "narciso@perez.do", class:"cont-link" %>
+                        <i class="bi bi-envelope-fill"></i> <%= t "contact.email" %> <%= mail_to "narciso@perez.do", class:"cont-link" %>
                     </div>
                     
                     <div class="mt-3">
-                        <i class="bi bi-telephone-fill"></i> Phone: <%= link_to "+18098628384", "tel:+18098628384", class:"cont-link" %>
+                        <i class="bi bi-telephone-fill"></i> <%= t "contact.phone" %> <%= link_to "+18098628384", "tel:+18098628384", class:"cont-link" %>
                     </div>
 
                     <div class="mt-3">
-                        <i class="bi bi-geo-alt-fill"></i> Address: <%= link_to 'Puerto Plata, DR', 'https://www.google.com/maps/search/?api=1&query=Purto+Plata', target: '_blank', class:"cont-link" %>
+                        <i class="bi bi-geo-alt-fill"></i> <%= t "contact.address" %> <%= link_to 'Puerto Plata, DR', 'https://www.google.com/maps/search/?api=1&query=Purto+Plata', target: '_blank', class:"cont-link" %>
                     </div>
               </div>
             </div>

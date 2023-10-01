@@ -1,0 +1,79 @@
+zh:
+  locales:
+    en: "English"
+    es: "Español"
+    ru: "Русский"
+    de: "Deutsch"
+    pt: "Português"
+    it: "Italiano"
+    fr: "Français"
+    zh: "中文"
+    uk: "Українська"
+    tr: "Türkçe"
+  save: "保存"
+  back: "返回"
+  paintings:
+    latest_artworks_title: "Narciso Perez的最新艺术作品"
+    explore_creations: "探索最新的创作，找到您最喜欢的艺术品。"
+    form:
+      english_title: "英文标题"
+      english_description: "英文描述"
+      enter_english_title: "输入英文标题..."
+      enter_english_description: "输入英文描述..."
+      spanish_title: "西班牙文标题"
+      spanish_description: "西班牙文描述"
+      enter_spanish_title: "输入西班牙文标题..."
+      enter_spanish_description: "输入西班牙文描述..."
+      creation_date: "创建日期"
+    post_item:
+      fine_art: "美术"
+      see_details: "查看详情"
+    edit:
+      edit_painting: "编辑画作"
+      this_painting_page: "此画作页面"
+      add_new_image: "添加新图像"
+      upload_image: "上传图像"
+      images: "图像:"
+      delete_image_confirmation: "您确定要删除此图像吗？"
+      delete: "删除"
+    new:
+      new_painting: "新画作"
+      first_you_name: "首先，您为您的画作命名。填写表格。"
+      save_and_edit: "保存它。然后去编辑它以上传图像。"
+    show:
+      title: "标题"
+      previous_painting: "上一幅画"
+      all_paintings: "所有画作"
+      next_painting: "下一幅画"
+      fine_art: "美术"
+      edit: "编辑"
+      delete: "删除"
+      confirm_delete: "您确定吗？"
+  contact:
+    contact_me_via: "通过以下方式联系我："
+    whatsapp: "WhatsApp："
+    facebook: "Facebook："
+    instagram: "Instagram："
+    email: "电子邮件："
+    phone: "电话："
+    address: "地址："
+  sidenav:
+    home: "首页"
+    art_gallery: "艺术画廊"
+    contact: "联系"
+    new_painting: "新画作"
+  author_widget:
+    title: "Narciso Perez"
+    description: "欢迎来到我的艺术博客！在这里，您可以探索我的独特画作并分享您的想法。如果您有任何疑问或需要更多信息，请随时通过下面的任何平台与我联系。"
+  subscribe_widget:
+    title: "订阅我的艺术博客"
+    description: "加入我的邮件列表，每当我创作新画作时接收更新！我重视您的隐私，并保证永远不会向您发送垃圾邮件或与任何人分享您的电子邮件。"
+    placeholder: "您的邮箱在这里"
+    button: "订阅"
+  date:
+    formats:
+      long: "%Y年%m月%d日"
+      short: "%m/%d"
+  time:
+    formats:
+      long: "%Y年%m月%d日 %H:%M"

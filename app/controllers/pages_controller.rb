@@ -4,9 +4,6 @@ class PagesController < ApplicationController
     @user = current_user
   end
 
-  def about
-  end
-
   def contact
     @user = current_user
   end

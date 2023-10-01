@@ -1,31 +1,31 @@
-<!-- start of sidenav -->
 <aside><div class="sidenav position-sticky d-flex flex-column justify-content-between">
     <%= link_to root_path, class:"navbar-brand logo" do %>
         <%= image_tag "logo.png" %>
     <% end %>
-    </a>
-    <!-- end of navbar-brand -->
 
     <div class="navbar navbar-dark my-4 p-0 font-primary">
         <ul class="navbar-nav w-100">
             <li class="nav-item">
-                <%= link_to "Home", root_path, class:"nav-link text-white px-0 pt-0" %>
+                <%= link_to t('sidenav.home'), root_path, class:"nav-link text-white px-0 pt-0" %>
             </li>
             <li class="nav-item">
-                <%= link_to "Art Gallery", paintings_path, class:"nav-link text-white px-0" %>
+                <%= link_to t('sidenav.art_gallery'), paintings_path, class:"nav-link text-white px-0" %>
             </li>
             <li class="nav-item">
-                <%= link_to "Contact", contact_path, class:"nav-link text-white px-0" %>
+                <%= link_to t('sidenav.contact'), contact_path, class:"nav-link text-white px-0" %>
             </li>
             <% if @user.present? && @user.admin? %>
                 <li class="nav-item">
-                    <%= link_to "New painting", new_painting_path, class:"nav-link text-white px-0" %>
+                    <%= link_to t('sidenav.new_painting'), new_painting_path, class:"nav-link text-white px-0" %>
                 </li>
             <% end %>
-            <%= select_tag 'locale', options_for_select([['English', root_path(locale: :en)], ['Español', root_path(locale: :es)]], selected: root_path(locale: I18n.locale)), class: 'custom-select bg-transparent rounded-0 text-white shadow-none mt-3', onchange: 'window.location = this.value' %>
+            <%= select_tag 'locale', 
+                options_for_select(I18n.available_locales.sort.map { |locale| [I18n.t("locales.#{locale}"), url_for(locale: locale)] }, selected: url_for(locale: I18n.locale)), 
+                class: 'custom-select bg-transparent rounded-0 text-white shadow-none mt-3 w-auto', 
+                onchange: 'window.location = this.value' 
+            %>
         </ul>
     </div>
-    <!-- end of navbar -->
 
     <ul class="list-inline nml-2">
         <li class="list-inline-item">

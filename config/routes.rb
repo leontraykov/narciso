@@ -3,7 +3,6 @@ Rails.application.routes.draw do
     devise_for :users
     resources :users
     get 'pages/main'
-    get '/about', to: 'pages#about'
     get '/contact', to: 'pages#contact'
     
     resources :subscriptions, only: [:create]

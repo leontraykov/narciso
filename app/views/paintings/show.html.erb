@@ -1,13 +1,11 @@
-
 <div class="card post-item bg-transparent border-0">
   <div class="card-body px-0">
     <h2 class="card-title text-white">
-      <% title_field = "#{I18n.locale}_title".to_sym %>
-      <%= @painting[title_field]%>
+      <% title_field = %w[en es].include?(I18n.locale.to_s) ? "#{I18n.locale}_title".to_sym : :en_title %>
+      <%= @painting[title_field] || @painting[:en_title] %>
     </h2>
   </div>
 </div>
-
 
 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
@@ -38,17 +36,17 @@
 <div class="d-flex justify-content-center mt-3 mb-3">
   <% if @prev_painting %>
     <%= link_to painting_path(@prev_painting), class: 'btn btn-outline-secondary border rounded-4 d-flex align-items-center' do %>
-      <i class="bi bi-arrow-left mx-0"></i><span class="d-none d-md-block mx-2"> Previous Painting</span>
+      <i class="bi bi-arrow-left mx-0"></i><span class="d-none d-md-block mx-2"><%= t('paintings.show.previous_painting') %></span>
     <% end %>
   <% end %>
 
   <%= link_to paintings_path, class: 'btn btn-outline-secondary border rounded-4 d-flex align-items-center mx-4' do %>
-    <i class="bi bi-grid-3x3-gap mx-0"></i><span class="d-none d-md-block mx-2"> All Paintings</span>
+    <i class="bi bi-grid-3x3-gap mx-0"></i><span class="d-none d-md-block mx-2"><%= t('paintings.show.all_paintings') %></span>
   <% end %>
 
   <% if @next_painting %>
     <%= link_to painting_path(@next_painting), class: 'btn btn-outline-secondary border rounded-4 d-flex align-items-center' do %>
-      <span class="d-none d-md-block mx-2">Next Painting </span><i class="bi bi-arrow-right mx-0"></i>
+      <span class="d-none d-md-block mx-2"><%= t('paintings.show.next_painting') %> </span><i class="bi bi-arrow-right mx-0"></i>
     <% end %>
   <% end %>
 </div>
@@ -56,13 +54,13 @@
 <div class="card post-item bg-transparent border-0 mb-5">
   <div class="card-body px-0">
     <p class="card-text">
-      <% description_field = "#{I18n.locale}_description".to_sym %>
-      <%= @painting[description_field] %>
+      <% description_field = %w[en es].include?(I18n.locale.to_s) ? "#{I18n.locale}_description".to_sym : :en_description %>
+      <%= @painting[description_field] || @painting[:en_description] %>
     </p>
     <ul class="post-meta mt-3">
       <li class="d-inline-block">
         <span class="bi-card-list text-primary"></span>
-        <span class="mx-2 text-white">Fine Art</span>
+        <span class="mx-2 text-white"><%= t('paintings.show.fine_art') %></span>
       </li>
       <% if @painting.creation_date.present? %>
         <li class="d-inline-block mx-4">
@@ -73,13 +71,12 @@
     </ul>
   </div>
 </div>
-<!-- Ваш текущий код -->
+
 <div class="text-start d-flex">
   <% if @user.present? && @user.admin? %>
     <div class="mb-2 d-flex">
-      <%= link_to 'Edit', edit_painting_path, class: 'btn btn-success me-2' %>
-      <%= button_to 'Delete', painting_path(@painting), method: :delete, class: 'btn btn-danger', data: { turbo_confirm: 'Are you sure?' } %>
+      <%= link_to t('paintings.show.edit'), edit_painting_path, class: 'btn btn-success me-2' %>
+      <%= button_to t('paintings.show.delete'), painting_path(@painting), method: :delete, class: 'btn btn-danger', data: { turbo_confirm: t('paintings.show.confirm_delete') } %>
     </div>
   <% end %>
 </div>
-
