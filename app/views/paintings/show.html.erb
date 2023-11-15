@@ -35,7 +35,7 @@
 <!-- Добавленный блок навигации -->
 <div class="d-flex justify-content-center mt-3 mb-3">
   <% if @prev_painting %>
-    <%= link_to painting_path(@prev_painting), class: 'btn btn-outline-secondary border rounded-4 d-flex align-items-center' do %>
+    <%= link_to painting_path(@prev_painting), class: 'btn btn-outline-secondary border rounded-4 d-flex align-items-center', data: { turbo: false } do %>
       <i class="bi bi-arrow-left mx-0"></i><span class="d-none d-md-block mx-2"><%= t('paintings.show.previous_painting') %></span>
     <% end %>
   <% end %>
@@ -45,7 +45,7 @@
   <% end %>
 
   <% if @next_painting %>
-    <%= link_to painting_path(@next_painting), class: 'btn btn-outline-secondary border rounded-4 d-flex align-items-center' do %>
+    <%= link_to painting_path(@next_painting), class: 'btn btn-outline-secondary border rounded-4 d-flex align-items-center', data: { turbo: false } do %>
       <span class="d-none d-md-block mx-2"><%= t('paintings.show.next_painting') %> </span><i class="bi bi-arrow-right mx-0"></i>
     <% end %>
   <% end %>
