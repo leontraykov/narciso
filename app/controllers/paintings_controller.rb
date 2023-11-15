@@ -20,7 +20,7 @@ class PaintingsController < ApplicationController
   def create
     @painting = Painting.new(painting_params)
     if @painting.save
-      redirect_to @painting, notice: 'Painting was successfully created.'
+      redirect_to edit_painting_path(@painting), notice: 'Painting was successfully created.'
     else
       render :new
     end
