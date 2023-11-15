@@ -30,29 +30,46 @@ body {
   background-color: #ffffff;
 }
 
-.carousel-inner {
-  height: 600px; /* Устанавливаем фиксированную высоту, чтобы избежать "прыжков" при разной высоте изображений */
-  @media (max-width:900px) {
-    height: 450px;
-  }
+/* Стили для блока галереи */
+.gallery-section {
+  max-height: 500px;
+  overflow: hidden;
 }
 
+/* Стили для элементов карусели */
 .carousel-item {
-  height: 100%;
-  width: 100%; /* Задайте нужную ширину */
+  max-height: 500px;
+  text-align: center;
 }
 
 .carousel-item img {
-  object-fit: contain; /* Подгоняем изображение внутрь контейнера, сохраняя пропорции */
-  max-height: 100%; /* Ограничиваем максимальную высоту изображения */
+  max-height: 500px; /* Ограничение по высоте для изображений */
+  max-width: 100%; /* Ограничение по ширине, чтобы изображение полностью вписывалось */
+  object-fit: contain; /* Изображение полностью вписывается, сохраняя пропорции */
+  margin: auto; /* Центрирование изображения по горизонтали и вертикали */
 }
 
-.carousel-image {
-  object-fit: contain; /* Сохраняет пропорции изображения и вписывает его в блок */
-  max-height: 100%; 
-  max-width: 100%; 
-  margin: auto; /* Центрирует изображение по горизонтали и вертикали */
-  display: block;
+/* Для корректного отображения кнопок навигации */
+.carousel-control-prev,
+.carousel-control-next {
+  color: #000; /* Цвет иконок */
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(1); /* Делаем иконки более видимыми на светлых изображениях */
+}
+
+.gslide-image img {
+  height: 75vh !important;
+  @media (max-width: 900px) {
+    height: 50vh !important;
+    width: auto;
+  }
+  @media (max-width: 600px) {
+    height: auto !important;
+    width: auto;
+  }
 }
 
 .contact-container {

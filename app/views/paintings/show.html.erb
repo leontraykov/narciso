@@ -7,30 +7,30 @@
   </div>
 </div>
 
-<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <% @painting.images.each_with_index do |image, index| %>
-      <div class="carousel-item <%= 'active' if index.zero? %>">
-        <%= image_tag(image.image.url, alt: '', class: 'carousel-image') if image.image.present? %>
+<% if @painting.images.any? %>
+  <hr class="my-4">
+  <section class="gallery-section position-relative mb-4">
+    <div id="carouselEventControls" class="carousel slide carousel-fade" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <% @painting.images.each_with_index do |image, index| %>
+          <div class="carousel-item <%= 'active' if index.zero? %> text-center">
+            <%= link_to image.image.url, class: "gallery-lightbox", data: { glightbox: '', turbo: false } do %>
+              <%= image_tag image.image.url, class: "d-block w-100", alt: "", style: "object-fit: cover; max-height: 600px;" %>
+            <% end %>
+          </div>
+        <% end %>
       </div>
-    <% end %>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-
-  <div class="carousel-indicators">
-    <% @painting.images.each_with_index do |_, index| %>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<%= index %>" class="<%= 'active' if index.zero? %> red" aria-current="<%= 'true' if index.zero? %>" aria-label="Slide <%= index + 1 %>"></button>
-    <% end %>
-  </div>
-</div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselEventControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselEventControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </section>
+<% end %>
 
 <!-- Добавленный блок навигации -->
 <div class="d-flex justify-content-center mt-3 mb-3">

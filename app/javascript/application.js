@@ -3,6 +3,17 @@ import "@hotwired/turbo-rails"
 import "./controllers"
 import * as bootstrap from "bootstrap"
 
+
+document.addEventListener('turbo:load', (event) => {
+
+  /**
+   * Initiate gallery lightbox 
+   */
+  const galleryLightbox = GLightbox({
+      selector: '.gallery-lightbox'
+  });
+});
+
 document.addEventListener('turbo:load', function() {
   // PreLoader Init
   function preLoader() {
